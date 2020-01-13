@@ -4,6 +4,8 @@ import Content from '../components/content'
 import { Form, Button } from 'react-bootstrap'
 import Axios from 'axios'
 
+baseUrl = process.env.baseURL || "http://localhost:3030/api/email"
+
 
 class Contact extends React.Component {
   constructor(props) {
@@ -34,7 +36,7 @@ class Contact extends React.Component {
       disabled: true
     });
 
-    Axios.post('http://localhost:3030/api/email ', this.state)
+    Axios.post(('http://glacial-taiga-43849.herokuapp.com/contact/api/email '), this.state)
       .then(res => {
         if (res.data.success) {
           this.setState({
