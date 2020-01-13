@@ -1,28 +1,23 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from 'react';
+import { Jumbotron, Container, Row, Col } from 'react-bootstrap';
 
-
-
-function Footer() {
-  const copyright = <FontAwesomeIcon icon={faCopyright} />
-  const laptop = <FontAwesomeIcon icon={faLaptop} />
+function Hero(props) {
+  const style = {
+    color: "white",
+  }
   return (
-    <footer className="footer">
+    <Jumbotron className="bg-transparent jumbotron-fluid p-0 m-0">
       <Container fluid={true}>
-        <Row className="border-top justify-content-between p-4">
-          <Col md={3} sm={12}>
-            Alexandre Viretti {laptop}
-          </Col>
-          <Col className="p-0 d-flex justify-content-end" md={3} >
-            This site by made by Alexandre Viretti {copyright}
+        <Row className="justify-content-center py-5">
+          <Col md={8} sm={12}>
+            {props.title && <h1 className="display-1 font-weight-bolder">{props.title}</h1>}
+            {props.subTitle && <h3 className="display-4 font-weight-light" >{props.subTitle}</h3>}
+            {props.text && <h3 className="lead font-weight-ligth" >{props.text}</h3>}
           </Col>
         </Row>
       </Container>
-    </footer>
-  )
+    </Jumbotron>
+  );
 }
 
-export default Footer;
+export default Hero;
